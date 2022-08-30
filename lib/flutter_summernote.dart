@@ -350,10 +350,10 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
         rotate: 180,
       );
 
-      int sizeInBytes = file.lengthSync();
+      int sizeInBytes = result!.lengthSync();
       double sizeInMb = sizeInBytes / 1000000;
       fileSize = sizeInMb;
-
+      print(fileSize);
       widget.listFileSize!.add(fileSize);
 
       return result;
