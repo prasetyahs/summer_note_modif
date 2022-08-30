@@ -342,20 +342,25 @@ class FlutterSummernoteState extends State<FlutterSummernote> {
   Future<File?> _getImage() async {
     final picked = await _imagePicker.getImage(source: ImageSource.gallery);
     if (picked != null) {
-       final picked = await _imagePicker.getImage(
-        source: ImageSource.gallery, imageQuality: 10,maxWidth: 1080 ,maxHeight: 720);
-    if (picked != null) {
-      var file = File(picked.path);
+      final picked = await _imagePicker.getImage(
+          source: ImageSource.gallery,
+          imageQuality: 10,
+          maxWidth: 1080,
+          maxHeight: 720);
+      if (picked != null) {
+        var file = File(picked.path);
 
-      int sizeInBytes = file.lengthSync();
-      double sizeInMb = sizeInBytes / 1000000;
-      fileSize = sizeInMb;
-      print(fileSize);
+        int sizeInBytes = file.lengthSync();
+        double sizeInMb = sizeInBytes / 1000000;
+        fileSize = sizeInMb;
+        print(fileSize);
 
-      return file;
-    } else {
-      return null;
+        return file;
+      } else {
+        return null;
+      }
     }
+    return null;
   }
 
   void _addImage(File image) async {
